@@ -2,13 +2,14 @@
   <ion-toolbar>
     <img src="assets/icon/pokemon_logo_header1.png" class="center" >
   </ion-toolbar>
+  <ion-button color="success" (click)="load()">Load</ion-button>
+  <ion-button color="danger" (click)="delete()">Delete all favorites</ion-button>
 </ion-header>
 
 
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar [debounce]="1000" (ionChange)="handleChange($event)"></ion-searchbar>
-
+ 
   <ion-list *ngIf="pokemondetail.length==0">
     <ion-item *ngFor="let i of [1,2,3,4,5]">
       <ion-avatar slot="start">
@@ -37,10 +38,5 @@
     </ion-list>
   
 
-    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-      <ion-infinite-scroll-content 
-      loadingSpinner="bubbles" 
-      loadingText="Loading more data..."></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
 
 </ion-content>

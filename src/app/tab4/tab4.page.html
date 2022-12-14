@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" color="danger"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div *ngIf="pokeballdetail">
+      <ion-card>
+        <ion-slides  [options]="slide0pts">
+          <ion-slide>
+            <ion-img style="width: 200px; height: 200px;" src="{{pokeballdetail.sprites.default}}"></ion-img>
+          </ion-slide>
+          
+        </ion-slides>
+        <ion-card-header>
+          <ion-card-title class="ion-text-capitalize">#{{pokeballdetail.id}} {{pokeballdetail.name}}
+            <ion-chip color="danger" class="ion-text-capitalize" *ngFor="let t of pokeballdetail.types">{{t.type.name}}
+            </ion-chip>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="ion-text-capitalize">
+            Category : {{pokeballdetail.category.name}}
+        </ion-card-content>
+        <ion-list>
+          <ion-item>
+           <b slot="start"> Cost : </b> 
+            <span slot="end"  class="ion-text-capitalize">
+               {{pokeballdetail.cost}}
+            </span> 
+          </ion-item><p></p>
+          
+          <ion-item class="ion-text-capitalize" *ngFor="let s of pokeballdetail.effect_entries">
+            <b slot="start" color="danger">{{s.effect}}</b> <p slot="end">{{s.base_stat}} </p>
+          </ion-item>
+        </ion-list>
+  
+  
+      </ion-card>
+    </div>
+  
+  
+  
+  </ion-content>
