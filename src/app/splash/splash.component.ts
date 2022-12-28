@@ -15,6 +15,6 @@ export class SplashComponent implements OnInit {
   ionViewDidEnter(){
     setTimeout(() =>{
       this.modalController.dismiss();
-    },0.5);
+    },3000);
   }
 }
